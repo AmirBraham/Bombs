@@ -11,6 +11,9 @@ public class BombSpawner : MonoBehaviour {
     float time;
     bool wave;
     bool tracking;
+    bool croix;
+   // bool jesus;
+
 	// Use this for initialization
 	void Start () {
         wave = false;
@@ -19,12 +22,6 @@ public class BombSpawner : MonoBehaviour {
         Player = GameObject.Find("Player");
         InvokeRepeating("Switch", 5, 10);
         
-       /* 
-        foreach (Vector3 pos in BombSpawnPositions)
-        {
-            GameObject _bomb = Instantiate(BombPrefab, pos, Quaternion.identity);
-        }
-        */
 
     }
 	
@@ -36,17 +33,22 @@ public class BombSpawner : MonoBehaviour {
             Wave();
         else if (tracking)
             Tracking();
-        
+        else if (croix)
+            Croix();
+        //else if (jesus)
+          //  Jesus();
 		
 	}
+
+
     void Wave()
     {
         time += Time.deltaTime;
         if (time >= 0.5f)
         {
             Instantiate(BombPrefab, BombSpawnPositions[bombIndex], Quaternion.identity);
-            if(bombIndex>2)
-                Instantiate(BombPrefab, BombSpawnPositions[bombIndex-3], Quaternion.identity);
+                if(bombIndex>2)
+                    Instantiate(BombPrefab, BombSpawnPositions[bombIndex-3], Quaternion.identity);
             if (bombIndex < 8)
                 bombIndex += 1;
             else
@@ -70,9 +72,65 @@ public class BombSpawner : MonoBehaviour {
         }
 
     }
+    void Croix()
+    {
+        time += Time.deltaTime;
+        if (time >= 0.3f)
+        {
+            Instantiate(BombPrefab, BombSpawnPositions[bombIndex], Quaternion.identity);
+            
+            if (bombIndex < 7)
+                bombIndex += 2;
+            else
+            {
+                croix = false;
+                tracking = true;
+                bombIndex = 0;
+            }
+            time = 0;
+        }
+
+    }
+   /* void Jesus()
+    {
+        
+        time += Time.deltaTime;
+        if (time >= 0.3f)
+        {
+
+            Instantiate(BombPrefab, BombSpawnPositions[bombIndex], Quaternion.identity);
+
+            if (bombIndex < 8)
+                bombIndex += 2;
+            else
+            {
+                jesus = false;
+                tracking = true;
+                bombIndex = 0;
+            }
+            time = 0;
+        }
+    }
+    */
     void Switch()
     {
-        tracking = false;
-        wave = true;
+        int x = Random.Range(0,2);
+        Debug.Log(x);
+       switch(x)
+        {
+            case 0:
+                wave = true;
+                tracking = false;
+                break;
+            case 1:
+                croix = true;
+                tracking = false;
+                break;
+          
+            case 2:
+                tracking = true;
+                break;
+                
+        }
     }
 }

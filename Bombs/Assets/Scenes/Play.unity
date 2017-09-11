@@ -218,15 +218,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BombSpawnPositions:
-  - {x: -3, y: 15, z: 5}
-  - {x: 0, y: 15, z: 5}
-  - {x: 3, y: 15, z: 5}
-  - {x: -3, y: 15, z: 3}
-  - {x: 0, y: 15, z: 3}
-  - {x: 3, y: 15, z: 3}
-  - {x: -3, y: 15, z: 0}
-  - {x: 0, y: 15, z: 0}
-  - {x: 3, y: 15, z: 0}
+  - {x: -3, y: 30, z: 5}
+  - {x: 0, y: 30, z: 5}
+  - {x: 3, y: 30, z: 5}
+  - {x: -3, y: 30, z: 3}
+  - {x: 0, y: 30, z: 3}
+  - {x: 3, y: 30, z: 3}
+  - {x: -3, y: 30, z: 0}
+  - {x: 0, y: 30, z: 0}
+  - {x: 3, y: 30, z: 0}
   BombPrefab: {fileID: 1949696471613656, guid: a42557a1be600d740bceef18ad3c5231, type: 2}
   trackCooldown: 2
 --- !u!4 &56716914
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombSpeed: 0
-  MaxSpeed: 70
+  MaxSpeed: 40
 --- !u!1 &583485544
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,10 +751,10 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 686.6021
-  m_SpotAngle: 58.15372
+  m_SpotAngle: 21.55547
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0.817
@@ -768,7 +768,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_FalloffTable:
@@ -796,7 +796,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1861997314}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 20, z: 3}
+  m_LocalPosition: {x: 0, y: 55.8, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
