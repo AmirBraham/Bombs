@@ -19,14 +19,15 @@ public class BombScript : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Ground")
         {
+            GameManager.GetComponent<ScoreManager>().Increment();
+            
             Destroy(gameObject);
-            GameManager.GetComponent<ScoreManager>().score += 1;
-            GameManager.GetComponent<ScoreManager>().scoreBox.text = GameManager.GetComponent<ScoreManager>().score.ToString();
+            
         }
         if(collision.gameObject.tag == "Player")
         {
             Destroy(collision.gameObject);
-            Debug.Log("GameOver");
+            GameManager.GetComponent<ScoreManager>().CheckHighScore();
             SceneManager.LoadScene(2);
         }
     }

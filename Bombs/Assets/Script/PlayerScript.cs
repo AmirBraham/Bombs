@@ -14,42 +14,30 @@ public class PlayerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GetInput();
         transform.position = Vector3.Lerp(transform.position, Positions[index], lerpSpeed * Time.deltaTime);
-		
 	}
 
+	public void moveRight(){
+		if (index == 2 || index == 5)
+			return;
+		if (index <= 7)
+			index += 1;
+	}
+	public void moveLeft(){
+		if (index == 3 || index == 6)
+			return;
+		if (index >= 1)
+			index -= 1;
 
+	}
+	public void moveUp(){
+		if (index >= 3)
+			index -= 3;
 
+	}
+	public void moveDown(){
+		if (index <= 5)
+			index += 3;
 
-
-
-
-    void GetInput()
-    {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (index >= 3)
-                index -= 3;
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            if (index <= 5)
-                index += 3;
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (index == 2 || index == 5)
-                return;
-            if (index <= 7)
-                index += 1;
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (index == 3 || index == 6)
-                return;
-            if (index >= 1)
-                index -= 1;
-        }
-    }
+	}
 }

@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour {
     public int score;
 	// Use this for initialization
 	void Start () {
+
         score = 0;
 	}
 	
@@ -14,4 +15,15 @@ public class ScoreManager : MonoBehaviour {
 	void Update () {
 		
 	}
+    public void Increment()
+    {
+        score += 1;
+        scoreBox.text = score.ToString();
+    }
+    public void CheckHighScore()
+    {
+        if (score > PlayerPrefs.GetInt("HighScore", 0))
+            PlayerPrefs.SetInt("HighScore", score);
+        PlayerPrefs.SetInt("Score", score);
+    }
 }

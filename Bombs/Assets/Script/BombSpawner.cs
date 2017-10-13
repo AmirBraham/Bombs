@@ -7,59 +7,42 @@ public class BombSpawner : MonoBehaviour {
     GameObject Player;
     public GameObject BombPrefab;
     public float trackCooldown;
+    [SerializeField]
     int bombIndex;
     float time;
-    bool wave;
+    int step;
+    int delay;
+    float cd;
     bool tracking;
-    bool croix;
-   // bool jesus;
-
+   
+    
+  
 	// Use this for initialization
 	void Start () {
-        wave = false;
-        tracking = true;
+        tracking = true ;
         bombIndex = 0;
         Player = GameObject.Find("Player");
         InvokeRepeating("Switch", 5, 10);
         
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (trackCooldown > 0.3f)
-            trackCooldown -= 0.01f * Time.deltaTime;
-        if (wave)
-            Wave();
+
+  
+    private void Update()
+    {
+        if(trackCooldown >=0.5f)
+            trackCooldown -= Time.deltaTime * 0.01f;
+        if (!tracking)
+            Universal(step, cd,delay);
         else if (tracking)
             Tracking();
-        else if (croix)
-            Croix();
-        //else if (jesus)
-          //  Jesus();
-		
-	}
+            
+            
 
+           
 
-    void Wave()
-    {
-        time += Time.deltaTime;
-        if (time >= 0.5f)
-        {
-            Instantiate(BombPrefab, BombSpawnPositions[bombIndex], Quaternion.identity);
-                if(bombIndex>2)
-                    Instantiate(BombPrefab, BombSpawnPositions[bombIndex-3], Quaternion.identity);
-            if (bombIndex < 8)
-                bombIndex += 1;
-            else
-            {
-                wave = false;
-                tracking = true;
-                bombIndex = 0;
-            }
-            time = 0;
-        }
     }
+
     void Tracking()
     {
         time += Time.deltaTime;
@@ -72,65 +55,45 @@ public class BombSpawner : MonoBehaviour {
         }
 
     }
-    void Croix()
-    {
-        time += Time.deltaTime;
-        if (time >= 0.3f)
-        {
-            Instantiate(BombPrefab, BombSpawnPositions[bombIndex], Quaternion.identity);
-            
-            if (bombIndex < 7)
-                bombIndex += 2;
-            else
-            {
-                croix = false;
-                tracking = true;
-                bombIndex = 0;
-            }
-            time = 0;
-        }
 
+    void Switch()
+        
+    {
+        tracking = !tracking;
+        step = Random.Range(1, 4);
+        delay = Random.Range(-4, 4);
+        cd = Random.Range(0.7f, 0.2f);
+        if (tracking == false)
+            Debug.Log("step: " + step + "delay: " + delay);
+        
     }
-   /* void Jesus()
+    
+    
+    void Universal( int step, float cd,int delay = 0)
     {
         
-        time += Time.deltaTime;
-        if (time >= 0.3f)
-        {
-
-            Instantiate(BombPrefab, BombSpawnPositions[bombIndex], Quaternion.identity);
-
-            if (bombIndex < 8)
-                bombIndex += 2;
-            else
+        
+            time += Time.deltaTime;
+            if (time >= cd)
             {
-                jesus = false;
-                tracking = true;
-                bombIndex = 0;
+               
+                Instantiate(BombPrefab, BombSpawnPositions[bombIndex], Quaternion.identity);
+            if (delay != 0)
+            {
+                if (bombIndex >= delay && (bombIndex - delay) < 9)
+                    
+                    Instantiate(BombPrefab, BombSpawnPositions[bombIndex - delay], Quaternion.identity);
             }
-            time = 0;
-        }
-    }
-    */
-    void Switch()
-    {
-        int x = Random.Range(0,2);
-        Debug.Log(x);
-       switch(x)
-        {
-            case 0:
-                wave = true;
-                tracking = false;
-                break;
-            case 1:
-                croix = true;
-                tracking = false;
-                break;
-          
-            case 2:
+            if (bombIndex < 9 - step)
+                    bombIndex += step;
+                else if (bombIndex >= 9 - step)
+                {
+                bombIndex = 0;
                 tracking = true;
-                break;
-                
-        }
+                }
+                time = 0;
+            }
+
+        
     }
 }
