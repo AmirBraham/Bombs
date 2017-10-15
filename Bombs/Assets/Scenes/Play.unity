@@ -144,7 +144,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 152944113c6259c498a5e2c9101f6fa2, type: 2}
+  - {fileID: 2100000, guid: 76ff537c8e1a84345868e6aeee938ab3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -718,8 +718,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Grad:
     serializedVersion: 2
-    key0: {r: 0.2627451, g: 0.50980395, b: 0.5019608, a: 1}
-    key1: {r: 0.67058825, g: 0.8431373, b: 0.6509804, a: 1}
+    key0: {r: 0, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -747,8 +747,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   LastGrad:
     serializedVersion: 2
-    key0: {r: 0.2627451, g: 0.50980395, b: 0.5019608, a: 1}
-    key1: {r: 0.67058825, g: 0.8431373, b: 0.6509804, a: 1}
+    key0: {r: 0, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
