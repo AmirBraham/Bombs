@@ -4,17 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour {
     public Text scoreBox;
-    public int score;
-	// Use this for initialization
-	void Start () {
+    public int score;	
 
-        score = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
     public void Increment()
     {
         score += 1;

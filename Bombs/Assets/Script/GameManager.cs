@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour {
     public void StartGame () {
         GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<BombSpawner>().enabled = true;
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().enabled = true;
-
         foreach(GameObject ui in UiItems) {
             ui.transform.DOLocalMoveX(500f, 2f);
         }

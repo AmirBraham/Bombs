@@ -63,9 +63,9 @@ public class BombSpawner : MonoBehaviour {
         step = Random.Range(1, 4);
         delay = Random.Range(-4, 4);
         cd = Random.Range(0.7f, 0.2f);
-        if (tracking == false)
-            Debug.Log("step: " + step + "delay: " + delay);
-        
+        if (tracking == false) {
+            //Debug.Log("step: " + step + "delay: " + delay);
+        }
     }
     
     
