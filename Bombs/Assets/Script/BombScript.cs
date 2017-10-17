@@ -5,6 +5,7 @@ public class BombScript : MonoBehaviour {
     GameObject GameManager;
     public float bombSpeed;
     public GameObject Explosion;
+    public GameObject Player;
 	// Use this for initialization
 	void Start () {
         GetComponent<Rigidbody>().velocity = Vector3.down * bombSpeed;
@@ -28,9 +29,14 @@ public class BombScript : MonoBehaviour {
         }
         if(collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
             GameManager.GetComponent<ScoreManager>().CheckHighScore();
-            SceneManager.LoadScene(2);
+            GameObject InstanExplosion = Instantiate(Explosion, transform.position, Quaternion.identity) as GameObject;
+            GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<BombSpawner>().enabled = false;
+            InstanExplosion.SetActive(true);
+            Destroy(collision.gameObject);
+            Instantiate(Player,new Vector3(0,0,3),Quaternion.identity);
+            GameManager.GetComponent<GameManager>().RestartGame();
+            Destroy(gameObject);
         }
     }
 }

@@ -9,10 +9,10 @@ public class SwipeManager : MonoBehaviour {
 	Vector2 SwipeSensitivity;
 	Vector2 dir;
 	GameObject player;
+    public void GetPlayer () {
+        player = GameObject.FindGameObjectWithTag("Player");
 
-	void Start(){
-		player = GameObject.Find ("Player");
-	}
+    }
 
 	void Update () {
 		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)

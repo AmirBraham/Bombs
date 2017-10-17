@@ -35,4 +35,10 @@ public class GameManager : MonoBehaviour {
     public void ToggleSound () {
         
     }
+    public void RestartGame ( ) {
+        foreach (GameObject ui in UiItems)
+        {
+            ui.transform.DOLocalMoveX(0f, 0.5f);
+        }
+    }
 }
