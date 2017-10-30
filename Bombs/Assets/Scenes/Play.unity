@@ -354,9 +354,8 @@ MonoBehaviour:
   - {x: -3, y: 30, z: 0}
   - {x: 0, y: 30, z: 0}
   - {x: 3, y: 30, z: 0}
+  Dead: 0
   BombPrefab: {fileID: 1949696471613656, guid: a42557a1be600d740bceef18ad3c5231, type: 2}
-  trackCooldown: 2
-  bombIndex: 0
 --- !u!4 &56716914
 Transform:
   m_ObjectHideFlags: 0

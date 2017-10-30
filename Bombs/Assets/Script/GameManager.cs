@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
     GameObject[] UiItems;
     [SerializeField]
     GameObject CameraAnimator;
+
 	// Use this for initialization
 	void Start () {
         CameraAnimator.transform.DOMoveY(0, 3f).OnComplete(BringUI);
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour {
 
     public void StartGame () {
         GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<BombSpawner>().enabled = true;
+        GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<BombSpawner>().Dead = false;
+
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().enabled = true;
         foreach(GameObject ui in UiItems) {
             ui.transform.DOLocalMoveX(500f, 2f);

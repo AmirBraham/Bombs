@@ -246,6 +246,7 @@ MonoBehaviour:
   bombSpeed: 15
   Explosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 2}
   Player: {fileID: 1499653061461748, guid: 8994bdaec6cca415d9f4a021a0ebba87, type: 2}
+  SpawnManager: {fileID: 0}
 --- !u!135 &135160884373322146
 SphereCollider:
   m_ObjectHideFlags: 1

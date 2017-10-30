@@ -31,6 +31,7 @@ public class BombScript : MonoBehaviour {
         {
             GameManager.GetComponent<ScoreManager>().CheckHighScore();
             GameObject InstanExplosion = Instantiate(Explosion, transform.position, Quaternion.identity) as GameObject;
+            GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<BombSpawner>().Dead = true;
             GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<BombSpawner>().enabled = false;
             InstanExplosion.SetActive(true);
             Destroy(collision.gameObject);
