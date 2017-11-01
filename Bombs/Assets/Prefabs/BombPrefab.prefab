@@ -101,7 +101,7 @@ Transform:
   m_GameObject: {fileID: 1949696471613656}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 1.885, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4489749623186460}
   - {fileID: 4609764321353380}
@@ -224,10 +224,10 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1949696471613656}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 3
   m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_AngularDrag: 0.24
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   bombSpeed: 15
   Explosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 2}
   Player: {fileID: 1499653061461748, guid: 8994bdaec6cca415d9f4a021a0ebba87, type: 2}
-  SpawnManager: {fileID: 0}
+  StartingPosition: {x: 0, y: 0, z: 0}
 --- !u!135 &135160884373322146
 SphereCollider:
   m_ObjectHideFlags: 1

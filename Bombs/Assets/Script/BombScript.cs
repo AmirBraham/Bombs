@@ -6,16 +6,19 @@ public class BombScript : MonoBehaviour {
     public float bombSpeed;
     public GameObject Explosion;
     public GameObject Player;
+    public Vector3 StartingPosition;
 	// Use this for initialization
 	void Start () {
+        bombSpeed = Random.Range(1, 6);
         GetComponent<Rigidbody>().velocity = Vector3.down * bombSpeed;
         GameManager = GameObject.Find("GameManager");
         Explosion.SetActive(false);
+        StartingPosition = transform.position;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(StartingPosition.x, 0, StartingPosition.z), 0.4f);
 	}
     private void OnCollisionEnter(Collision collision)
     {

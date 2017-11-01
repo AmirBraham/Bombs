@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 public class BombSpawner : MonoBehaviour
 {
     public Vector3[] BombSpawnPositions = new Vector3[9];
@@ -14,15 +15,19 @@ public class BombSpawner : MonoBehaviour
 
     void spawnPattern()
     {
-        if(!Dead) {
+        if (!Dead)
+        {
             int[] randomSkippedBombs = { (int)Random.Range(0, spawnLimit), (int)Random.Range(0, spawnLimit) };
             Debug.Log(randomSkippedBombs[1]);
             for (int i = 0; i < spawnLimit; i++)
             {
                 if (!(randomSkippedBombs[0] == i || randomSkippedBombs[1] == i))
+                {
                     Instantiate(BombPrefab, BombSpawnPositions[i], Quaternion.identity);
-            }
-        }
 
+                }
+            }
+
+        }
     }
-}
+} 
