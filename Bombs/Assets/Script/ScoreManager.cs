@@ -2,19 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class ScoreManager : MonoBehaviour {
+public class ScoreManager : MonoBehaviour
+{
     public Text scoreBox;
-    public int score;	
+    public int score;
 
+    void Start()
+    {
+        Debug.Log(PlayerPrefs.GetInt("HighScore"));
+    }
     public void Increment()
     {
         score += 1;
-        scoreBox.text = score.ToString();
     }
     public void CheckHighScore()
     {
-        if (score > PlayerPrefs.GetInt("HighScore", 0))
+        if (PlayerPrefs.HasKey("HighScore"))
+        {
+            if (score > PlayerPrefs.GetInt("HighScore"))
+            {
+                scoreBox.text = score.ToString() + "\n NEW RECORD";
+                PlayerPrefs.SetInt("HighScore", score);
+            }
+            else
+            {
+                scoreBox.fontSize = 45;
+                scoreBox.text = score.ToString();
+
+            }
+        }
+        else
+        {
             PlayerPrefs.SetInt("HighScore", score);
-        PlayerPrefs.SetInt("Score", score);
+        }
     }
 }
