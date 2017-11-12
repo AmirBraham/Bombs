@@ -378,7 +378,6 @@ GameObject:
   m_Component:
   - component: {fileID: 60848948}
   - component: {fileID: 60848949}
-  - component: {fileID: 60848950}
   - component: {fileID: 60848951}
   - component: {fileID: 60848952}
   m_Layer: 0
@@ -414,19 +413,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreBox: {fileID: 1473245195}
   score: 0
---- !u!114 &60848950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 60848947}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7b190adb0a91d445bdb527b355eebc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bombSpeed: 0
-  MaxSpeed: 30
 --- !u!114 &60848951
 MonoBehaviour:
   m_ObjectHideFlags: 0

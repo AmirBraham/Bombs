@@ -10,9 +10,11 @@ public class BombSpawner : MonoBehaviour
     void Start()
     {
         InvokeRepeating("spawnPattern", 1.0f, 3f);
-
+		InvokeRepeating ("trackPlayer", 1.0f, 3f);
     }
-
+	void Update(){
+		Player = GameObject.FindGameObjectWithTag ("Player");
+	}
     void spawnPattern()
     {
         if (!Dead)
@@ -23,11 +25,20 @@ public class BombSpawner : MonoBehaviour
             {
                 if (!(randomSkippedBombs[0] == i || randomSkippedBombs[1] == i))
                 {
-                    Instantiate(BombPrefab, BombSpawnPositions[i], Quaternion.identity);
+                    Instantiate(BombPrefab, new Vector3(BombSpawnPositions[i].x,Random.Range(25,50),BombSpawnPositions[i].z) , Quaternion.identity);
 
                 }
             }
 
         }
     }
+	void trackPlayer(){
+		if (!Dead) {
+			int playerpos = Player.GetComponent<PlayerScript> ().index;
+			Instantiate (BombPrefab, BombSpawnPositions [playerpos], Quaternion.identity);
+
+
+		}
+		
+	}
 } 

@@ -9,19 +9,25 @@ public class SwipeManager : MonoBehaviour {
 	Vector2 SwipeSensitivity;
 	Vector2 dir;
 	GameObject player;
+
     public void GetPlayer () {
         player = GameObject.FindGameObjectWithTag("Player");
 
     }
 
 	void Update () {
-		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
-			checkMobileSwipes ();
-		else
-			checkComputerSwipes ();
+        if (player != null)
+        {
+            if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+                checkMobileSwipes();
+            else
+                checkComputerSwipes();
+        }
+
 		
 	}
 	void checkMobileSwipes (){
+        
 		dir = Vector2.zero;
 		if (Input.touchCount > 0)
 		{
