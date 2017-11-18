@@ -25,11 +25,6 @@ public class GameManager : MonoBehaviour {
             ui.transform.DOLocalMoveX(0f, 2f);
         }
     }
-
-    // Update is called once per f
-    void Update()
-    {
-    }
     public void StartGame () {
         GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<BombSpawner>().enabled = true;
         GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<BombSpawner>().Dead = false;
@@ -39,13 +34,16 @@ public class GameManager : MonoBehaviour {
             ui.transform.DOLocalMoveX(500f, 2f);
         }
     }
-    public void ChooseLevel () {
-        //ADD MORE LEVELS and Modifications 
+    public void Rate () {
+        #if UNITY_ANDROID
+        Application.OpenURL("market://details?id=YOUR_ID");
+        #elif UNITY_IPHONE
+        Application.OpenURL("itms-apps://itunes.apple.com/app/idYOUR_ID");
+        #endif
     }
-    public void SeeScoreBoard () {
-        //ADD SCOREBOARD
+    public void Levels () {
     }
-    public void SeeSettings  () {
+    public void Settings  () {
         
     }
     public void ToggleSound (Button button) {
