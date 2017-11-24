@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d2ae319637b8d43a58e44111aa3d90b7
+timeCreated: 1511125059
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Phage Regular
+  fontNames:
+  - Phage Regular
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

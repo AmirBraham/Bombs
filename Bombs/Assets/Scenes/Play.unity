@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3267504, g: 0.46530575, b: 0.6413847, a: 1}
+  m_IndirectSpecularColor: {r: 0.32691947, g: 0.46457282, b: 0.64050645, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4581,7 +4581,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 875d5289113c548369c22b261640c6d3, type: 3}
+    m_Font: {fileID: 12800000, guid: 583605b8ff0684c168f63613d01ecf9f, type: 3}
     m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
@@ -4593,7 +4593,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '"BOMBS"'
+  m_Text: BOMBS
 --- !u!222 &1473245196
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5083,6 +5083,7 @@ GameObject:
   - component: {fileID: 1943279378}
   - component: {fileID: 1943279377}
   - component: {fileID: 1943279376}
+  - component: {fileID: 1943279379}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -5204,6 +5205,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1943279374}
+--- !u!95 &1943279379
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1943279374}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 945e14bf2e7b14704a55fe6ff43d10c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &2005312847
 Prefab:
   m_ObjectHideFlags: 0

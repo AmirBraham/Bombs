@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 583605b8ff0684c168f63613d01ecf9f
+timeCreated: 1511125072
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: ralev001
+  fontNames:
+  - ralev001
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
