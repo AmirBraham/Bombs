@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
+        
+        UiItems[3].SetActive(false);
         Audio.PlayDelayed(2f);
         CameraAnimator.transform.DOMoveY(0, 3f).OnComplete(BringUI);
 	}
@@ -42,6 +44,12 @@ public class GameManager : MonoBehaviour {
         #endif
     }
     public void Levels () {
+        if(UiItems[3].activeSelf) {
+            UiItems[3].SetActive(false);
+        } else{
+            UiItems[3].SetActive(true);
+
+        }
     }
     public void Settings  () {
         
