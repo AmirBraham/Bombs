@@ -10,15 +10,21 @@ public class shopNavigator : MonoBehaviour {
         Database database = Resources.Load("Database") as Database;
         for (int i = 0; i < database.itemsNames.Length;i++) {
             
-        
             GameObject item = new GameObject(database.itemsNames[i], typeof(RectTransform), typeof(Image));
             item.transform.parent = transform;
-            GameObject instItem = Instantiate(item,item.transform.position, Quaternion.identity);
-            instItem.GetComponent<RectTransform>().sizeDelta = new Vector2(50,50);
-            instItem.GetComponent<Image>().sprite = database.inventorySprties[i];
-            if(database.itemsNames[i] != "default") {
-                instItem.GetComponent<RectTransform>().position = new Vector3(-50, YPos - 50);
+           // GameObject instItem = Instantiate(item,item.transform.position, Quaternion.identity) as GameObject;
+            item.GetComponent<RectTransform>().sizeDelta = new Vector2(50,50);
+            item.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+            item.GetComponent<Image>().sprite = database.inventorySprites[i];
+
+            if(i == 0 ) {
+                item.GetComponent<RectTransform>().anchoredPosition = new Vector3(-50, 50);
+            } else{
+                YPos -= 50;
+                item.GetComponent<RectTransform>().anchoredPosition = new Vector3(-50, YPos);
+
             }
+
 
         }
 

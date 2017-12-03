@@ -14,12 +14,15 @@ MonoBehaviour:
   itemsNames:
   - default
   - ball8
+  - green
   itemsPrices:
   - 0
   - 100
-  inventorySprties:
+  - 1000
+  inventorySprites:
   - {fileID: 21300000, guid: db1cbd77a93054f61ae06e2211a1c411, type: 3}
   - {fileID: 21300000, guid: 22d554c7c5afe439e96519d062228364, type: 3}
+  - {fileID: 21300000, guid: 56105d58ce00341aa9db0f389203e0eb, type: 3}
   ballTextures: []
   baseTextures: []
   atmosphereColors: []
