@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor;
+#if UNITY_EDITOR
 
+using UnityEditor;
 //This class helps us make scriptable objects
 public class MakeScriptableObject
 {
@@ -13,3 +14,4 @@ public class MakeScriptableObject
         AssetDatabase.SaveAssets();
     }
 }
+#endif

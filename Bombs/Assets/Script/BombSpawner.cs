@@ -25,7 +25,7 @@ public class BombSpawner : MonoBehaviour
             {
                 if (!(randomSkippedBombs[0] == i || randomSkippedBombs[1] == i))
                 {
-                    Instantiate(BombPrefab, new Vector3(BombSpawnPositions[i].x,Random.Range(25,50),BombSpawnPositions[i].z) , Quaternion.identity);
+                    GameObject bominst = Instantiate(BombPrefab, new Vector3(BombSpawnPositions[i].x,Random.Range(25,50),BombSpawnPositions[i].z) , Quaternion.identity);
 
                 }
             }
@@ -39,6 +39,7 @@ public class BombSpawner : MonoBehaviour
 
 
 		}
-		
 	}
+
+  
 } 
