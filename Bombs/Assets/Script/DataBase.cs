@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-
+[System.Serializable]
 public class Database : ScriptableObject
 {
     public string[] itemsNames;
@@ -9,6 +9,8 @@ public class Database : ScriptableObject
     public Sprite[] inventorySprites;
     public Texture[] ballTextures;
     public Texture[] baseTextures;
-    public Color[] atmosphereColors;
+    public Color[] ballAlbedoColors;
+    public Color[] baseAlbedoColors;
+
 
 }

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4489749623186460}
   - component: {fileID: 33740577395552692}
   - component: {fileID: 23012219750130430}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RabKaaboura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4156417268527278}
   - component: {fileID: 198552761234412946}
   - component: {fileID: 199795404260261872}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4609764321353380}
   - component: {fileID: 33527077749006786}
   - component: {fileID: 23836340108546362}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RabKhit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 54388280950390598}
   - component: {fileID: 135160884373322146}
   - component: {fileID: 114023120889647106}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BombPrefab
   m_TagString: bomb
   m_Icon: {fileID: 0}

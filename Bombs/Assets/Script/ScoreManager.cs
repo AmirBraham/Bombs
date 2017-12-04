@@ -7,10 +7,6 @@ public class ScoreManager : MonoBehaviour
     public Text scoreBox;
     public int score;
 
-    void Start()
-    {
-        Debug.Log(PlayerPrefs.GetInt("HighScore"));
-    }
     public void Increment()
     {
         score += 1;

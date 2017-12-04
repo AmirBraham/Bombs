@@ -20,7 +20,6 @@ public class BombSpawner : MonoBehaviour
         if (!Dead)
         {
             int[] randomSkippedBombs = { (int)Random.Range(0, spawnLimit), (int)Random.Range(0, spawnLimit) };
-            Debug.Log(randomSkippedBombs[1]);
             for (int i = 0; i < spawnLimit; i++)
             {
                 if (!(randomSkippedBombs[0] == i || randomSkippedBombs[1] == i))
