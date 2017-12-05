@@ -5,10 +5,11 @@ using UnityEngine.UI;
 public class shopNavigator : MonoBehaviour {
 
     public GameObject Base;
+    public GameObject DatabaseGameObject;
 	// Use this for initialization
 	void Start () {
         int YPos = 50;
-        Database database = Resources.Load("Database") as Database;
+        DATABASE database = DatabaseGameObject.GetComponent<DATABASE>();
         for (int i = 0; i < database.itemsNames.Length ;i++) {
             
             GameObject item = new GameObject(database.itemsNames[i], typeof(RectTransform), typeof(Image),typeof(Button));

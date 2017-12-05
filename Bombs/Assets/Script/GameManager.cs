@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEditor.SceneManagement;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour {
     [SerializeField]
@@ -12,10 +14,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     AudioSource Audio;
 
-
     // Use this for initialization
 	void Start () {
-        
         UiItems[3].SetActive(false);
         Audio.PlayDelayed(2f);
         CameraAnimator.transform.DOMoveY(0, 3f).OnComplete(BringUI);

@@ -1,9 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-
-[System.Serializable]
-public class Database : ScriptableObject
-{
+public class DATABASE : MonoBehaviour {
     public string[] itemsNames;
     public float[] itemsPrices;
     public Sprite[] inventorySprites;
@@ -11,6 +10,4 @@ public class Database : ScriptableObject
     public Texture[] baseTextures;
     public Color[] ballAlbedoColors;
     public Color[] baseAlbedoColors;
-
-
 }
