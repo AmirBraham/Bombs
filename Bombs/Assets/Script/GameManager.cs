@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
-using UnityEditor.SceneManagement;
-using UnityEditor;
 
 public class GameManager : MonoBehaviour {
     [SerializeField]

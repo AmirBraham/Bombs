@@ -39,18 +39,19 @@ public class SwipeManager : MonoBehaviour {
 			if(touch.phase == TouchPhase.Ended){
 				dir = touch.position - fingerPosition;
 			}
-			if(Mathf.Abs(dir.x)>SwipeSensitivity.x){
-				if (dir.x > 0) {
-					player.GetComponent<PlayerScript> ().moveRight ();
-				} else {
-					player.GetComponent<PlayerScript> ().moveLeft ();
-				}
-			}
-			if(Mathf.Abs(dir.y)>SwipeSensitivity.y){
-				if (dir.y > 0) {
-					player.GetComponent<PlayerScript> ().moveUp ();
-				} else {
-					player.GetComponent<PlayerScript> ().moveDown();
+			if(Mathf.Abs(dir.x)>SwipeSensitivity.x || Mathf.Abs(dir.y)>SwipeSensitivity.y){
+				if(Mathf.Abs(dir.x)>Mathf.Abs(dir.y)){
+					if (dir.x > 0) {
+						player.GetComponent<PlayerScript> ().moveRight ();
+					} else {
+						player.GetComponent<PlayerScript> ().moveLeft ();
+					}
+				}else{
+					if (dir.y > 0) {
+						player.GetComponent<PlayerScript> ().moveUp ();
+					} else {
+						player.GetComponent<PlayerScript> ().moveDown();
+					}
 				}
 			}
 		}
@@ -65,19 +66,21 @@ public class SwipeManager : MonoBehaviour {
 		if (Input.GetMouseButtonUp(0)){
 			dir = Input.mousePosition - mousePosition;
 		}
-		if(Mathf.Abs(dir.x)>SwipeSensitivity.x){
-			if (dir.x > 0) {
-				player.GetComponent<PlayerScript> ().moveRight ();
+		if(Mathf.Abs(dir.x)>SwipeSensitivity.x || Mathf.Abs(dir.y)>SwipeSensitivity.y) {
+			if(Mathf.Abs(dir.x)>Mathf.Abs(dir.y) ){
+				if (dir.x > 0) {
+					player.GetComponent<PlayerScript> ().moveRight ();
+				} else {
+					player.GetComponent<PlayerScript> ().moveLeft ();
+				}
 			} else {
-				player.GetComponent<PlayerScript> ().moveLeft ();
+				if (dir.y > 0) {
+					player.GetComponent<PlayerScript> ().moveUp ();
+				} else {
+					player.GetComponent<PlayerScript> ().moveDown();
+				}
 			}
-		}
-		if(Mathf.Abs(dir.y)>SwipeSensitivity.y){
-			if (dir.y > 0) {
-				player.GetComponent<PlayerScript> ().moveUp ();
-			} else {
-				player.GetComponent<PlayerScript> ().moveDown();
-			}
+
 		}
 	}
 }
