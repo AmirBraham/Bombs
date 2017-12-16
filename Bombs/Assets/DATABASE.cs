@@ -8,4 +8,5 @@ public class DATABASE : MonoBehaviour {
     public Texture[] baseTextures;
     public Color[] ballAlbedoColors;
     public Color[] baseAlbedoColors;
+    public Texture[] PlaneTextures;
 }

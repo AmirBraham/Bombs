@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class shopNavigator : MonoBehaviour {
 
     public GameObject Base;
+    public GameObject Plane;
     public GameObject DatabaseGameObject;
 	// Use this for initialization
 	void Start () {
@@ -24,8 +25,9 @@ public class shopNavigator : MonoBehaviour {
             string itemName = database.itemsNames[i];
             Color itemBallAlbedoColor = database.ballAlbedoColors[i];
             Color itemBaseAlbedoColor = database.baseAlbedoColors[i];
+            Texture planeT = database.PlaneTextures[i];
 
-            item.GetComponent<Button>().onClick.AddListener(delegate () { ChooseItem(ballT,BaseT,itemName,itemBallAlbedoColor,itemBaseAlbedoColor); });
+            item.GetComponent<Button>().onClick.AddListener(delegate () { ChooseItem(ballT,BaseT,itemName,itemBallAlbedoColor,itemBaseAlbedoColor,planeT); });
             if(i == 0 ) {
                 item.GetComponent<RectTransform>().anchoredPosition = new Vector3(-50, 50);
             } else{
@@ -41,13 +43,14 @@ public class shopNavigator : MonoBehaviour {
 
 	}
 
-    public void ChooseItem(Texture ballT,Texture baseTexture,string name,Color ballAlbedoColor,Color baseAlbedoColor) {
+    public void ChooseItem(Texture ballT,Texture baseTexture,string name,Color ballAlbedoColor,Color baseAlbedoColor,Texture planeT) {
         Debug.Log("Changing item");
         PlayerPrefs.SetString("name", name);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>().material.mainTexture = ballT;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>().material.SetColor("_Color", ballAlbedoColor);
         Base.GetComponent<Renderer>().material.mainTexture = baseTexture;
         Base.GetComponent<Renderer>().material.SetColor("_Color", baseAlbedoColor);
+        Plane.GetComponent<Renderer>().material.mainTexture = planeT;
 
     }
 
