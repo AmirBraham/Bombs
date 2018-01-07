@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour
     public void Increment()
     {
         score += 1;
+        scoreBox.text = score.ToString();
     }
     public void CheckHighScore()
     {

@@ -11,7 +11,10 @@ public class GameManager : MonoBehaviour {
     Sprite[] SoundIcons;
     [SerializeField]
     AudioSource Audio;
-
+    [SerializeField]
+    GameObject scoreText;
+    [SerializeField]
+    GameObject[] ScoreUI;
     // Use this for initialization
 	void Start () {
         UiItems[3].SetActive(false);
@@ -32,7 +35,12 @@ public class GameManager : MonoBehaviour {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().enabled = true;
         foreach(GameObject ui in UiItems) {
             ui.transform.DOLocalMoveX(500f, 2f);
-        }
+        }  
+        scoreText.transform.DOLocalMoveX(0f, 2f);
+        scoreText.GetComponent<Text>().fontSize = 18;
+        scoreText.GetComponent<Text>().text = "0";
+        ScoreUI[0].transform.DOLocalMoveX(260f, 0.5f);
+        ScoreUI[1].transform.DOLocalMoveX(260f, 0.5f);
     }
     public void Rate () {
         #if UNITY_ANDROID
@@ -67,5 +75,10 @@ public class GameManager : MonoBehaviour {
         {
             ui.transform.DOLocalMoveX(0f, 0.5f);
         }
+        scoreText.transform.DOLocalMoveX(130f, 2f);
+        ScoreUI[0].transform.DOLocalMoveX(0f, 0.5f);
+        ScoreUI[1].transform.DOLocalMoveX(0f, 0.5f);
+        ScoreUI[0].GetComponent<Text>().text = "Current score : " + scoreText.GetComponent<Text>().text;
+        ScoreUI[1].GetComponent<Text>().text = "High Score : " + PlayerPrefs.GetInt("HighScore").ToString();
     }
 }
