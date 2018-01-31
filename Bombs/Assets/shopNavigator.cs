@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 public class shopNavigator : MonoBehaviour {
 
     public GameObject Base;
     public GameObject Plane;
     public GameObject DatabaseGameObject;
     public Sprite LockedSprite;
+    public DATABASE database;
+    public Text money;
+
 	// Use this for initialization
 	void Start () {
+        money.text = PlayerPrefs.GetInt("money").ToString();
+
         int Group1YPos = 50;
         int Group2YPos = 50;
-
-        DATABASE database = DatabaseGameObject.GetComponent<DATABASE>();
+        database = DatabaseGameObject.GetComponent<DATABASE>();
         for (int i = 0; i < database.itemsNames.Length ;i++) {
-            
             GameObject item = new GameObject(database.itemsNames[i], typeof(RectTransform), typeof(Image),typeof(Button));
             item.transform.parent = transform;
            // GameObject instItem = Instantiate(item,item.transform.position, Quaternion.identity) as GameObject;
@@ -29,8 +33,9 @@ public class shopNavigator : MonoBehaviour {
             Color itemBallAlbedoColor = database.ballAlbedoColors[i];
             Color itemBaseAlbedoColor = database.baseAlbedoColors[i];
             Texture planeT = database.PlaneTextures[i];
+            int num = i;
 
-            item.GetComponent<Button>().onClick.AddListener(delegate () { ChooseItem(ballT,BaseT,itemName,itemBallAlbedoColor,itemBaseAlbedoColor,planeT); });
+            item.GetComponent<Button>().onClick.AddListener(delegate () { ChooseItem(item, num,ballT,BaseT,itemName,itemBallAlbedoColor,itemBaseAlbedoColor,planeT); });
             if(i == 0 ) {
                 item.GetComponent<RectTransform>().anchoredPosition = new Vector3(-50, 50);
             } else{
@@ -64,23 +69,36 @@ public class shopNavigator : MonoBehaviour {
                 }
 
             }
+        }
+	}
 
-
-
+    public void ChooseItem(GameObject item,int i,Texture ballT,Texture baseTexture,string name,Color ballAlbedoColor,Color baseAlbedoColor,Texture planeT) {
+        Debug.Log(i);
+        if(database.status[i] == "unlocked") {
+            Debug.Log("Changing item");
+            PlayerPrefs.SetString("name", name);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>().material.mainTexture = ballT;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>().material.SetColor("_Color", ballAlbedoColor);
+            Base.GetComponent<Renderer>().material.mainTexture = baseTexture;
+            Base.GetComponent<Renderer>().material.SetColor("_Color", baseAlbedoColor);
+            Plane.GetComponent<Renderer>().material.mainTexture = planeT;
+        } else  {
+            item.transform.DOShakePosition(1,1f,10,90,false,false);
+            if(PlayerPrefs.GetInt("money") >= database.itemsPrices[i]) {
+                PlayerPrefs.SetInt("money", (int)(PlayerPrefs.GetInt("money") - database.itemsPrices[i]));
+                money.text =  PlayerPrefs.GetInt("money").ToString();
+                database.status[i] = "unlocked";
+                item.transform.GetChild(0).gameObject.SetActive(false);
+                database.UpdateStatus(i);
+            }
         }
 
 
 
-	}
+    }
 
-    public void ChooseItem(Texture ballT,Texture baseTexture,string name,Color ballAlbedoColor,Color baseAlbedoColor,Texture planeT) {
-        Debug.Log("Changing item");
-        PlayerPrefs.SetString("name", name);
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>().material.mainTexture = ballT;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>().material.SetColor("_Color", ballAlbedoColor);
-        Base.GetComponent<Renderer>().material.mainTexture = baseTexture;
-        Base.GetComponent<Renderer>().material.SetColor("_Color", baseAlbedoColor);
-        Plane.GetComponent<Renderer>().material.mainTexture = planeT;
+    public void updatemoney () {
+        money.text = PlayerPrefs.GetInt("money").ToString();
 
     }
   

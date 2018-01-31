@@ -11,10 +11,22 @@ public class DATABASE : MonoBehaviour {
     public Texture[] PlaneTextures;
     public string[] status;
 
-    private void Start()
+    void Start()
     {
         for (int i = 0; i < status.Length;i++) {
-            PlayerPrefs.SetString(itemsNames[i],status[i]);
+            if(!PlayerPrefs.HasKey(itemsNames[i])) {
+                PlayerPrefs.SetString(itemsNames[i], status[i]);
+            } else{
+                status[i] = PlayerPrefs.GetString(itemsNames[i]);
+            }
+        }
+    }
+
+    public void UpdateStatus (int K ) {
+        status[K] = "unlocked";
+        for (int i = 0; i < status.Length; i++)
+        {
+            PlayerPrefs.SetString(itemsNames[i], status[i]);
         }
     }
 }

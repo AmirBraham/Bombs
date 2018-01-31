@@ -32,5 +32,11 @@ public class coinScript : MonoBehaviour {
             Destroy(gameObject,5f);
         }
 
+        if(PlayerPrefs.HasKey("money")) {
+            PlayerPrefs.SetInt("money",PlayerPrefs.GetInt("money")+1);
+        } else {
+            PlayerPrefs.SetInt("money",1);
+        }
+
     }
 }

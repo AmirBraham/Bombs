@@ -51,11 +51,10 @@ public class GameManager : MonoBehaviour {
     public void Levels () {
         for (int i = 0; i < UiItems.Length;i++ ) {
             if(i != 3) 
-                UiItems[i].transform.DOLocalMoveX(500f, 2f);
+                UiItems[i].transform.DOLocalMoveX(500f, 1f);
         }
-        UiItems[3].transform.DOLocalMoveY(0f, 3f);
-
-
+        UiItems[3].transform.DOLocalMoveY(0f, 1.5f);
+        UiItems[3].transform.GetChild(0).gameObject.GetComponent<shopNavigator>().updatemoney();
     }
     public void Settings  () {
         
@@ -87,8 +86,8 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i < UiItems.Length; i++)
         {
             if (i != 3)
-                UiItems[i].transform.DOLocalMoveX(0f, 4f);
+                UiItems[i].transform.DOLocalMoveX(0f, 2f);
         }
-        UiItems[3].transform.DOLocalMoveY(500f, 2f);
+        UiItems[3].transform.DOLocalMoveY(500f, 1f);
     }
 }
