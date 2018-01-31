@@ -283,3 +283,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prize: 5
+  ScoreAnimation: {fileID: 1668446461630786, guid: 998329eccbf994eabb266895dc501e9f,
+    type: 2}

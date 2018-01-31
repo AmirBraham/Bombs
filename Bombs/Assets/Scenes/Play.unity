@@ -4078,8 +4078,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 551360518}
   m_LocalRotation: {x: -0.59948146, y: -0, z: -0, w: 0.80038863}
-  m_LocalPosition: {x: 0, y: -106, z: 131.4}
-  m_LocalScale: {x: 25.83057, y: 32.35459, z: 34.325184}
+  m_LocalPosition: {x: 0, y: -265, z: 131.4}
+  m_LocalScale: {x: 46.72291, y: 58.52368, z: 62.08813}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -4178,13 +4178,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 583485544}
-  m_LocalRotation: {x: 0.30241176, y: -0, z: -0, w: 0.9531774}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 13.24, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 808477869}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 35.205, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!114 &583485550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5171,7 +5171,7 @@ GameObject:
   - component: {fileID: 1559698633}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5830,6 +5830,11 @@ Prefab:
       propertyPath: status.Array.data[4]
       value: locked
       objectReference: {fileID: 0}
+    - target: {fileID: 114213057064504346, guid: 8ea5b2e1260974393bc1cbf125fd2ab1,
+        type: 2}
+      propertyPath: itemsPrices.Array.data[1]
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ea5b2e1260974393bc1cbf125fd2ab1, type: 2}
   m_IsPrefabParent: 0
@@ -6200,6 +6205,10 @@ Prefab:
       propertyPath: DB
       value: 
       objectReference: {fileID: 451413136}
+    - target: {fileID: 4216080297968762, guid: 8994bdaec6cca415d9f4a021a0ebba87, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8994bdaec6cca415d9f4a021a0ebba87, type: 2}
   m_IsPrefabParent: 0

@@ -11,6 +11,7 @@ TagManager:
   - Fire
   - coin
   - GameManager
+  - canvas
   layers:
   - Default
   - TransparentFX
