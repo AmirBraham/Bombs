@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class BombScript : MonoBehaviour {
     GameObject GameManager;
+	BombSpawner bombSpawner;
     public float bombSpeed;
     public GameObject Explosion;
     public GameObject Player;
@@ -15,6 +16,7 @@ public class BombScript : MonoBehaviour {
         bombSpeed = Random.Range(1, 6);
         GetComponent<Rigidbody>().velocity = Vector3.down * bombSpeed;
         GameManager = GameObject.Find("GameManager");
+		bombSpawner = GameObject.Find ("Spawner").GetComponent<BombSpawner> ();
         Explosion.SetActive(false);
         StartingPosition = transform.position;
         shadowinst = Instantiate(shadow, new Vector3(transform.position.x, -0.66f, transform.position.z), Quaternion.Euler(90, 0, 0));
@@ -38,7 +40,6 @@ public class BombScript : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Ground")
         {
-            GameManager.GetComponent<ScoreManager>().Increment();
             GameObject InstanExplosion = Instantiate(Explosion, transform.position, Quaternion.identity) as GameObject;
             InstanExplosion.SetActive(true);
             Destroy(gameObject);
@@ -48,8 +49,9 @@ public class BombScript : MonoBehaviour {
         {
             GameManager.GetComponent<ScoreManager>().CheckHighScore();
             GameObject InstanExplosion = Instantiate(Explosion, transform.position, Quaternion.identity) as GameObject;
-            GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<BombSpawner>().Dead = true;
-            GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<BombSpawner>().enabled = false;
+			bombSpawner.Dead = true;
+			bombSpawner.resetTimer ();
+            bombSpawner.enabled = false;
             InstanExplosion.SetActive(true);
             Destroy(collision.gameObject);
             Instantiate(Player,new Vector3(0,0,3),Quaternion.identity);

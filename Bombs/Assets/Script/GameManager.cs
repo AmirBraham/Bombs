@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour {
     GameObject[] ScoreUI;
     // Use this for initialization
 	void Start () {
-        UiItems[3].SetActive(false);
         Audio.PlayDelayed(2f);
         CameraAnimator.transform.DOMoveY(0, 3f).OnComplete(BringUI);
 	}
@@ -50,12 +49,13 @@ public class GameManager : MonoBehaviour {
         #endif
     }
     public void Levels () {
-        if(UiItems[3].activeSelf) {
-            UiItems[3].SetActive(false);
-        } else{
-            UiItems[3].SetActive(true);
-
+        for (int i = 0; i < UiItems.Length;i++ ) {
+            if(i != 3) 
+                UiItems[i].transform.DOLocalMoveX(500f, 2f);
         }
+        UiItems[3].transform.DOLocalMoveY(0f, 3f);
+
+
     }
     public void Settings  () {
         
@@ -80,5 +80,15 @@ public class GameManager : MonoBehaviour {
         ScoreUI[1].transform.DOLocalMoveX(0f, 0.5f);
         ScoreUI[0].GetComponent<Text>().text = "Current score : " + scoreText.GetComponent<Text>().text;
         ScoreUI[1].GetComponent<Text>().text = "High Score : " + PlayerPrefs.GetInt("HighScore").ToString();
+    }
+    public void QuitShop()
+    {
+        Debug.Log("clicked");
+        for (int i = 0; i < UiItems.Length; i++)
+        {
+            if (i != 3)
+                UiItems[i].transform.DOLocalMoveX(0f, 4f);
+        }
+        UiItems[3].transform.DOLocalMoveY(500f, 2f);
     }
 }

@@ -9,7 +9,7 @@ public class shopNavigator : MonoBehaviour {
     public GameObject DatabaseGameObject;
 	// Use this for initialization
 	void Start () {
-        int YPos = 50;
+        int XPos = -50;
         DATABASE database = DatabaseGameObject.GetComponent<DATABASE>();
         for (int i = 0; i < database.itemsNames.Length ;i++) {
             
@@ -31,8 +31,8 @@ public class shopNavigator : MonoBehaviour {
             if(i == 0 ) {
                 item.GetComponent<RectTransform>().anchoredPosition = new Vector3(-50, 50);
             } else{
-                YPos -= 50;
-                item.GetComponent<RectTransform>().anchoredPosition = new Vector3(-50, YPos);
+                XPos += 50;
+                item.GetComponent<RectTransform>().anchoredPosition = new Vector3(XPos,50 );
 
             }
 
@@ -53,6 +53,7 @@ public class shopNavigator : MonoBehaviour {
         Plane.GetComponent<Renderer>().material.mainTexture = planeT;
 
     }
+  
 
 
 }

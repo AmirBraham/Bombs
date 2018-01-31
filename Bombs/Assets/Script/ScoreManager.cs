@@ -7,9 +7,9 @@ public class ScoreManager : MonoBehaviour
     public Text scoreBox;
     public int score;
 
-    public void Increment()
+	public void Increment(int amount)
     {
-        score += 1;
+		score += amount;
         scoreBox.text = score.ToString();
     }
     public void CheckHighScore()

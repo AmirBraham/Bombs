@@ -2,18 +2,71 @@
 using System.Collections;
 public class BombSpawner : MonoBehaviour
 {
+	const int BombTimer = 4;
+	const int TrackTimer = 1;
+	const int CoinTimer = 3;
     public Vector3[] BombSpawnPositions = new Vector3[9];
+	public GameObject coin;
     GameObject Player;
     public bool Dead;
     public GameObject BombPrefab;
+	Vector3 finalSpawnpos;
     int spawnLimit = 7;
+	public float bombSpawnTimer;
+	public float trackPlayerTimer;
+	public float spawnCoinTimer;
+	float bSTimer;
+	float tPTimer;
+	float sCTimer;
     void Start()
     {
-        InvokeRepeating("spawnPattern", 1.0f, 3f);
-		InvokeRepeating ("trackPlayer", 1.0f, 3f);
+		resetTimer ();
     }
 	void Update(){
 		Player = GameObject.FindGameObjectWithTag ("Player");
+
+		bSTimer += Time.deltaTime;
+		tPTimer += Time.deltaTime;
+		sCTimer += Time.deltaTime;
+
+		if (bSTimer >= bombSpawnTimer) {
+			spawnPattern ();
+			bSTimer = 0;
+		}
+		if (tPTimer >= trackPlayerTimer) {
+			trackPlayer ();
+			tPTimer = 0;
+		}
+		if (sCTimer >= spawnCoinTimer) {
+			spawnCoin ();
+			sCTimer = 0;
+		}
+
+
+
+		if (bombSpawnTimer >= 2)
+			bombSpawnTimer -= 0.02f * Time.deltaTime;
+		if (trackPlayerTimer >= 0.5f)
+			trackPlayerTimer -= 0.02f * Time.deltaTime;
+		if (spawnCoinTimer >= 2)
+			spawnCoinTimer -= 0.02f * Time.deltaTime;
+	}
+
+
+
+	void spawnCoin(){
+		int n = Random.Range (1, 4);
+		int playerpos = Player.GetComponent<PlayerScript> ().index;
+		while (n > 0) {
+			int p = Random.Range (0, 8);
+			while (p == playerpos) {
+				p = Random.Range (0, 8);
+			}
+			Instantiate (coin, Player.GetComponent<PlayerScript> ().Positions [p], Quaternion.identity);
+			n--;
+				
+		}
+	
 	}
     void spawnPattern()
     {
@@ -24,7 +77,10 @@ public class BombSpawner : MonoBehaviour
             {
                 if (!(randomSkippedBombs[0] == i || randomSkippedBombs[1] == i))
                 {
-                    GameObject bominst = Instantiate(BombPrefab, new Vector3(BombSpawnPositions[i].x,Random.Range(25,50),BombSpawnPositions[i].z) , Quaternion.identity);
+					finalSpawnpos.x = BombSpawnPositions [i].x;
+					finalSpawnpos.y = Random.Range (15, 50);
+					finalSpawnpos.z = BombSpawnPositions [i].z;
+					GameObject bominst = Instantiate(BombPrefab,finalSpawnpos, Quaternion.identity);
 
                 }
             }
@@ -39,6 +95,13 @@ public class BombSpawner : MonoBehaviour
 
 		}
 	}
-
+	public void resetTimer(){
+		bSTimer = 0;
+		tPTimer = 0;
+		sCTimer = 0;
+		bombSpawnTimer = BombTimer;
+		spawnCoinTimer = CoinTimer;
+		trackPlayerTimer = TrackTimer;
+	}
   
 } 

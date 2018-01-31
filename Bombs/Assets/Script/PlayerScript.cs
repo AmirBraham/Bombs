@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
+	GameObject GameManager;
     public float lerpSpeed;
     public Vector3[] Positions = new Vector3[9];
     public int index;
 	// Use this for initialization
 	void Start () {
+		GameManager = GameObject.Find ("GameManager");
         index = 4;
         transform.position = Positions[index];
 
@@ -42,4 +44,6 @@ public class PlayerScript : MonoBehaviour {
 			index += 3;
 
 	}
+
+
 }

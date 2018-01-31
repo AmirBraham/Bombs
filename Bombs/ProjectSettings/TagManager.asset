@@ -8,6 +8,9 @@ TagManager:
   - bomb
   - SpawnManager
   - DB
+  - Fire
+  - coin
+  - GameManager
   layers:
   - Default
   - TransparentFX
