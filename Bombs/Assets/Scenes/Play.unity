@@ -3929,6 +3929,7 @@ MonoBehaviour:
   Base: {fileID: 36988409}
   Plane: {fileID: 551360518}
   DatabaseGameObject: {fileID: 451413135}
+  LockedSprite: {fileID: 21300000, guid: a79b89203168941a2ad38e77d85c11e9, type: 3}
 --- !u!1 &522535626
 GameObject:
   m_ObjectHideFlags: 0
@@ -5062,8 +5063,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 505006279}
-  m_Horizontal: 1
-  m_Vertical: 0
+  m_Horizontal: 0
+  m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 3
   m_Inertia: 1
@@ -5494,6 +5495,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114213057064504346, guid: 8ea5b2e1260974393bc1cbf125fd2ab1,
         type: 2}
+      propertyPath: status.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114213057064504346, guid: 8ea5b2e1260974393bc1cbf125fd2ab1,
+        type: 2}
       propertyPath: itemsNames.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -5797,6 +5803,31 @@ Prefab:
       propertyPath: baseTextures.Array.data[4]
       value: 
       objectReference: {fileID: 2800000, guid: d37ac01fe745d4e5cb69ee3ee9baf848, type: 3}
+    - target: {fileID: 114213057064504346, guid: 8ea5b2e1260974393bc1cbf125fd2ab1,
+        type: 2}
+      propertyPath: status.Array.data[0]
+      value: unlocked
+      objectReference: {fileID: 0}
+    - target: {fileID: 114213057064504346, guid: 8ea5b2e1260974393bc1cbf125fd2ab1,
+        type: 2}
+      propertyPath: status.Array.data[1]
+      value: locked
+      objectReference: {fileID: 0}
+    - target: {fileID: 114213057064504346, guid: 8ea5b2e1260974393bc1cbf125fd2ab1,
+        type: 2}
+      propertyPath: status.Array.data[2]
+      value: locked
+      objectReference: {fileID: 0}
+    - target: {fileID: 114213057064504346, guid: 8ea5b2e1260974393bc1cbf125fd2ab1,
+        type: 2}
+      propertyPath: status.Array.data[3]
+      value: locked
+      objectReference: {fileID: 0}
+    - target: {fileID: 114213057064504346, guid: 8ea5b2e1260974393bc1cbf125fd2ab1,
+        type: 2}
+      propertyPath: status.Array.data[4]
+      value: locked
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ea5b2e1260974393bc1cbf125fd2ab1, type: 2}
   m_IsPrefabParent: 0

@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 public class coinScript : MonoBehaviour {
-	public float lifeTime = 3;
+	public int prize;
+	float lifeTime = 3;
+	BombSpawner bombSpawner;
 	// Use this for initialization
 	void Start () {
         transform.DOScale(new Vector3(1,1,1),2f);
+		bombSpawner = GameObject.Find ("Spawner").GetComponent<BombSpawner> ();
+		lifeTime = bombSpawner.spawnCoinTimer;
 	}
 	
 	// Update is called once per frame
@@ -22,7 +26,7 @@ public class coinScript : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player") {
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<ScoreManager>().Increment(1);
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<ScoreManager>().Increment(prize);
             transform.DOScale(new Vector3(0, 0, 0), 1f);
             gameObject.transform.GetChild(1).gameObject.SetActive(true);
             Destroy(gameObject,5f);

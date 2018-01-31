@@ -2,9 +2,9 @@
 using System.Collections;
 public class BombSpawner : MonoBehaviour
 {
-	const int BombTimer = 4;
-	const int TrackTimer = 1;
-	const int CoinTimer = 3;
+	public const float BombTimer = 5;
+	public const float TrackTimer = 1;
+	public const float CoinTimer = 3;
     public Vector3[] BombSpawnPositions = new Vector3[9];
 	public GameObject coin;
     GameObject Player;

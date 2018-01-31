@@ -9,4 +9,12 @@ public class DATABASE : MonoBehaviour {
     public Color[] ballAlbedoColors;
     public Color[] baseAlbedoColors;
     public Texture[] PlaneTextures;
+    public string[] status;
+
+    private void Start()
+    {
+        for (int i = 0; i < status.Length;i++) {
+            PlayerPrefs.SetString(itemsNames[i],status[i]);
+        }
+    }
 }

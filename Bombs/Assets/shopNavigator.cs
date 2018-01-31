@@ -7,9 +7,12 @@ public class shopNavigator : MonoBehaviour {
     public GameObject Base;
     public GameObject Plane;
     public GameObject DatabaseGameObject;
+    public Sprite LockedSprite;
 	// Use this for initialization
 	void Start () {
-        int XPos = -50;
+        int Group1YPos = 50;
+        int Group2YPos = 50;
+
         DATABASE database = DatabaseGameObject.GetComponent<DATABASE>();
         for (int i = 0; i < database.itemsNames.Length ;i++) {
             
@@ -31,10 +34,37 @@ public class shopNavigator : MonoBehaviour {
             if(i == 0 ) {
                 item.GetComponent<RectTransform>().anchoredPosition = new Vector3(-50, 50);
             } else{
-                XPos += 50;
-                item.GetComponent<RectTransform>().anchoredPosition = new Vector3(XPos,50 );
+                if(i % 2 == 0) {
+                    Group1YPos -= 50;
+                    item.GetComponent<RectTransform>().anchoredPosition = new Vector3(-50, Group1YPos);
+
+                } else {
+                    if(i == 1) {
+                        item.GetComponent<RectTransform>().anchoredPosition = new Vector3(50, 50);
+
+                    } else {
+                        Group2YPos -= 50;
+
+                        item.GetComponent<RectTransform>().anchoredPosition = new Vector3(50, Group2YPos);
+
+                    }
+
+                }
+
+
+            if (PlayerPrefs.GetString(itemName) == "locked")
+                {
+                    GameObject lockedItem = new GameObject(database.itemsNames[i] + "locked", typeof(RectTransform), typeof(Image));
+                    lockedItem.transform.parent = item.transform;
+                    lockedItem.GetComponent<RectTransform>().sizeDelta = new Vector2(50, 50);
+                    lockedItem.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                    lockedItem.GetComponent<Image>().sprite = LockedSprite;
+                    lockedItem.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
+
+                }
 
             }
+
 
 
         }
