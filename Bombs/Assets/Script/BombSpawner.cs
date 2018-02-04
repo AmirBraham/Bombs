@@ -5,8 +5,10 @@ public class BombSpawner : MonoBehaviour
 	public const float BombTimer = 5;
 	public const float TrackTimer = 1;
 	public const float CoinTimer = 3;
+    public const float ShieldTimer = 9;
     public Vector3[] BombSpawnPositions = new Vector3[9];
 	public GameObject coin;
+    public GameObject shield;
     GameObject Player;
     public bool Dead;
     public GameObject BombPrefab;
@@ -15,9 +17,11 @@ public class BombSpawner : MonoBehaviour
 	public float bombSpawnTimer;
 	public float trackPlayerTimer;
 	public float spawnCoinTimer;
+    public float shieldTimer;
 	float bSTimer;
 	float tPTimer;
 	float sCTimer;
+    float sHTimer;
     void Start()
     {
 		resetTimer ();
@@ -28,6 +32,7 @@ public class BombSpawner : MonoBehaviour
 		bSTimer += Time.deltaTime;
 		tPTimer += Time.deltaTime;
 		sCTimer += Time.deltaTime;
+        sHTimer += Time.deltaTime;
 
 		if (bSTimer >= bombSpawnTimer) {
 			spawnPattern ();
@@ -41,6 +46,11 @@ public class BombSpawner : MonoBehaviour
 			spawnCoin ();
 			sCTimer = 0;
 		}
+        if (sHTimer >= shieldTimer)
+        {
+            spawnShield();
+            sHTimer = 0;
+        }
 
 
 
@@ -50,6 +60,8 @@ public class BombSpawner : MonoBehaviour
 			trackPlayerTimer -= 0.02f * Time.deltaTime;
 		if (spawnCoinTimer >= 2)
 			spawnCoinTimer -= 0.02f * Time.deltaTime;
+        if (shieldTimer >= 2)
+            shieldTimer -= 0.02f * Time.deltaTime;
 	}
 
 
@@ -68,6 +80,20 @@ public class BombSpawner : MonoBehaviour
 		}
 	
 	}
+    void spawnShield()
+    {
+        int playerpos = Player.GetComponent<PlayerScript>().index;
+        int p = Random.Range(0, 8);
+        GameObject[] coins = GameObject.FindGameObjectsWithTag("coin");
+        for (int i = 0; i < coins.Length;i++) {
+            if(coins[i].transform.position == Player.GetComponent<PlayerScript>().Positions[p] ) {
+                p = Random.Range(0, 8);
+            }
+        }
+
+        Instantiate(shield, Player.GetComponent<PlayerScript>().Positions[p], Quaternion.identity);
+
+    }
     void spawnPattern()
     {
         if (!Dead)
@@ -99,8 +125,10 @@ public class BombSpawner : MonoBehaviour
 		bSTimer = 0;
 		tPTimer = 0;
 		sCTimer = 0;
+        sHTimer = 0;
 		bombSpawnTimer = BombTimer;
 		spawnCoinTimer = CoinTimer;
+        shieldTimer = ShieldTimer;
 		trackPlayerTimer = TrackTimer;
 	}
   

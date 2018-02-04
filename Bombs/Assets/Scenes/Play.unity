@@ -369,11 +369,13 @@ MonoBehaviour:
   - {x: 0, y: 30, z: 0}
   - {x: 3, y: 30, z: 0}
   coin: {fileID: 1993727629873390, guid: fca3a7537f82720409eef5fd39fd63e6, type: 2}
+  shield: {fileID: 1685732773593046, guid: 00ec9d530ca12452aa72f4e9c9e8b3a1, type: 2}
   Dead: 0
   BombPrefab: {fileID: 1949696471613656, guid: a42557a1be600d740bceef18ad3c5231, type: 2}
   bombSpawnTimer: 4
   trackPlayerTimer: 1
   spawnCoinTimer: 3
+  shieldTimer: 2
 --- !u!4 &56716914
 Transform:
   m_ObjectHideFlags: 0
@@ -6207,6 +6209,11 @@ Prefab:
       objectReference: {fileID: 451413136}
     - target: {fileID: 4216080297968762, guid: 8994bdaec6cca415d9f4a021a0ebba87, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588535917025690, guid: 8994bdaec6cca415d9f4a021a0ebba87,
+        type: 2}
+      propertyPath: currentState
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

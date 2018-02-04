@@ -13,7 +13,6 @@ public class PlayerScript : MonoBehaviour {
         index = 4;
         transform.position = Positions[index];
 
-
 	}
 	
 	// Update is called once per frame
