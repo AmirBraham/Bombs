@@ -5,7 +5,7 @@ public class BombSpawner : MonoBehaviour
 	public const float BombTimer = 5;
 	public const float TrackTimer = 1;
 	public const float CoinTimer = 3;
-    public const float ShieldTimer = 9;
+    public const float ShieldTimer = 20;
     public Vector3[] BombSpawnPositions = new Vector3[9];
 	public GameObject coin;
     public GameObject shield;

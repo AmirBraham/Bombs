@@ -7,7 +7,7 @@ public class ShieldBehaviour : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         transform.DOScale(new Vector3(0.7f, 0.7f, 0.7f), 1f);
-        Destroy(gameObject, 8f);
+        Destroy(gameObject, 10f);
 	}
 	
 	// Update is called once per frame

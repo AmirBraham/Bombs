@@ -156,6 +156,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.TrashProds.Bombs
     Standalone: com.TrashProds.Bombs
+    iOS: com.TrashProds.Bombs
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 18

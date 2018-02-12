@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 2
+  m_AmbientIntensity: 2.09
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: a993ad215eb644dc1a48bf6c39b57261, type: 2}
@@ -375,7 +375,7 @@ MonoBehaviour:
   bombSpawnTimer: 4
   trackPlayerTimer: 1
   spawnCoinTimer: 3
-  shieldTimer: 2
+  shieldTimer: 5
 --- !u!4 &56716914
 Transform:
   m_ObjectHideFlags: 0
