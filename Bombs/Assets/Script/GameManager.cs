@@ -15,8 +15,13 @@ public class GameManager : MonoBehaviour {
     GameObject scoreText;
     [SerializeField]
     GameObject[] ScoreUI;
+
+    bool gameIsPaused;
+    public Button PauseButton;
+    public Sprite[] PauseUISprites;
+
     // Use this for initialization
-	void Start () {
+    void Start () {
         Audio.PlayDelayed(2f);
         CameraAnimator.transform.DOMoveY(0, 3f).OnComplete(BringUI);
 	}
@@ -28,6 +33,8 @@ public class GameManager : MonoBehaviour {
         }
     }
     public void StartGame () {
+        gameIsPaused = false;
+
         GetComponent<ScoreManager>().score = 0;
         GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<BombSpawner>().enabled = true;
         GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<BombSpawner>().Dead = false;
@@ -80,7 +87,7 @@ public class GameManager : MonoBehaviour {
         ScoreUI[0].GetComponent<Text>().text = "Current score : " + scoreText.GetComponent<Text>().text;
         ScoreUI[1].GetComponent<Text>().text = "High Score : " + PlayerPrefs.GetInt("HighScore").ToString();
     }
-    public void QuitShop()
+    public void QuitShop()  
     {
         Debug.Log("clicked");
         for (int i = 0; i < UiItems.Length; i++)
@@ -90,4 +97,19 @@ public class GameManager : MonoBehaviour {
         }
         UiItems[3].transform.DOLocalMoveY(500f, 1f);
     }
+
+    public void PauseOrPlayGame() {
+        if(gameIsPaused) {
+            Time.timeScale = 1;
+            gameIsPaused = false;
+            PauseButton.gameObject.GetComponent<Image>().sprite = PauseUISprites[0];
+        } else {
+            Time.timeScale = 0;
+            PauseButton.gameObject.GetComponent<Image>().sprite = PauseUISprites[1];
+
+            gameIsPaused = true;
+        }
+
+    }
+
 }
