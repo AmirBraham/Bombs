@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class SwipeManager : MonoBehaviour {
 	Vector3 mousePosition;
 	Vector2 fingerPosition;
@@ -70,8 +70,11 @@ public class SwipeManager : MonoBehaviour {
 			if(Mathf.Abs(dir.x)>Mathf.Abs(dir.y) ){
 				if (dir.x > 0) {
 					player.GetComponent<PlayerScript> ().moveRight ();
+
 				} else {
 					player.GetComponent<PlayerScript> ().moveLeft ();
+                    player.GetComponent<Rigidbody>().DORotate(new Vector3(0, 0, 180f),1f);
+
 				}
 			} else {
 				if (dir.y > 0) {

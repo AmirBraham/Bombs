@@ -6333,15 +6333,6 @@ Prefab:
       propertyPath: DB
       value: 
       objectReference: {fileID: 451413136}
-    - target: {fileID: 4216080297968762, guid: 8994bdaec6cca415d9f4a021a0ebba87, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114588535917025690, guid: 8994bdaec6cca415d9f4a021a0ebba87,
-        type: 2}
-      propertyPath: currentState
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8994bdaec6cca415d9f4a021a0ebba87, type: 2}
   m_IsPrefabParent: 0

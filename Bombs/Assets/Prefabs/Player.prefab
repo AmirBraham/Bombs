@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114588535917025690}
   - component: {fileID: 114962141525421768}
   - component: {fileID: 54386165938804642}
+  - component: {fileID: 95326099481566108}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -101,6 +102,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &95326099481566108
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1499653061461748}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 51b1802f2758b47ceb66e357267bb35d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114588535917025690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,6 +142,12 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 3, y: 0, z: 0}
   index: 0
+  anim: {fileID: 0}
+  anims:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114962141525421768
 MonoBehaviour:
   m_ObjectHideFlags: 1
