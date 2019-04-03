@@ -230,27 +230,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 56716912}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60e843ced0499f44aa901e719d79e7b6, type: 3}
+  m_Script: {fileID: 11500000, guid: e245fd05f0b884811ad74eee54b73ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BombSpawnPositions:
-  - {x: -3, y: 30, z: 5}
-  - {x: 0, y: 30, z: 5}
-  - {x: 3, y: 30, z: 5}
-  - {x: -3, y: 30, z: 3}
-  - {x: 0, y: 30, z: 3}
-  - {x: 3, y: 30, z: 3}
-  - {x: -3, y: 30, z: 0}
-  - {x: 0, y: 30, z: 0}
-  - {x: 3, y: 30, z: 0}
-  coin: {fileID: 1993727629873390, guid: fca3a7537f82720409eef5fd39fd63e6, type: 3}
-  shield: {fileID: 1685732773593046, guid: 00ec9d530ca12452aa72f4e9c9e8b3a1, type: 3}
-  Dead: 0
-  BombPrefab: {fileID: 1949696471613656, guid: a42557a1be600d740bceef18ad3c5231, type: 3}
-  bombSpawnTimer: 4
-  trackPlayerTimer: 1
-  spawnCoinTimer: 3
-  shieldTimer: 5
+  bombPrefab: {fileID: 1949696471613656, guid: a42557a1be600d740bceef18ad3c5231, type: 3}
+  spawnPositions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!4 &56716914
 Transform:
   m_ObjectHideFlags: 0
@@ -341,7 +334,6 @@ MonoBehaviour:
   - {fileID: 1473245193}
   - {fileID: 1943279374}
   - {fileID: 1688238670}
-  - {fileID: 0}
   CameraAnimator: {fileID: 808477868}
   SoundIcons:
   - {fileID: 21300000, guid: 55799b6f350814ccfbd6677ae5fbfcaa, type: 3}
@@ -6698,6 +6690,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: DB
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4216080297968762, guid: 8994bdaec6cca415d9f4a021a0ebba87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6730,13 +6726,7 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114962141525421768, guid: 8994bdaec6cca415d9f4a021a0ebba87,
-        type: 3}
-      propertyPath: DB
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114962141525421768, guid: 8994bdaec6cca415d9f4a021a0ebba87, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8994bdaec6cca415d9f4a021a0ebba87, type: 3}
 --- !u!1 &2143691469
 GameObject:
