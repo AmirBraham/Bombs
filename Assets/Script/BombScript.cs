@@ -43,6 +43,7 @@ public class BombScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        spawner.BombsCount(-1);
         if (collision.gameObject.tag == "Player")
         {
             GameManager.GetComponent<ScoreManager>().CheckHighScore();

@@ -14,7 +14,9 @@ public class PlayerScript : MonoBehaviour
     {
         GameManager = GameObject.Find("GameManager");
         index = 4;
+        Positions = GameObject.Find("Spawner").GetComponent<Spawner>().GenerateSpwanPositions(3, 3);
         transform.position = Positions[index];
+
     }
 
     // Update is called once per frame
