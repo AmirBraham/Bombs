@@ -244,6 +244,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  bombCount: 0
 --- !u!4 &56716914
 Transform:
   m_ObjectHideFlags: 0
