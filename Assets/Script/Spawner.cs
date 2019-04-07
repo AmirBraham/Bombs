@@ -8,11 +8,24 @@ public class Spawner : MonoBehaviour
     PlayerScript player;
     public int bombCount;
     int spawnRate;
+    bool isDead;
     private void Start()
     {
         spawnPositions = GenerateSpwanPositions(3, 3);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
-        StartCoroutine(StartWave(5));
+    }
+
+
+    public void Update()
+    {
+        Debug.Log(spawnRate + "," + bombCount + "," + isDead);
+
+    }
+    public void StartWave(int i)
+    {
+        isDead = false;
+        StartCoroutine(SpawnWave(i));
+
     }
 
     public Vector3[] GenerateSpwanPositions(int col, int row)
@@ -76,11 +89,11 @@ public class Spawner : MonoBehaviour
     }
 
 
-    IEnumerator StartWave(int rate)
+    IEnumerator SpawnWave(int rate)
     {
-        Debug.Log("new wave starting in 3 seconds");
+        Debug.Log("new wave starting in 4 seconds");
         spawnRate = rate;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         SpawnStack(spawnRate);
     }
 
@@ -88,13 +101,23 @@ public class Spawner : MonoBehaviour
 
     public int BombsCount(int i)
     {
+        if (isDead) return 0;
         bombCount += i;
         if (spawnRate == 0 && bombCount == 0)
         {
-            StartCoroutine(StartWave(3));
+
+            StartCoroutine(SpawnWave(3));
         }
         else if (bombCount == 0) SpawnStack(spawnRate);
         return bombCount;
+    }
+
+    public void PlayerDied()
+    {
+        bombCount = 0;
+        spawnRate = 0;
+        isDead = true;
+
     }
 
 

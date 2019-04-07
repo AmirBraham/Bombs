@@ -8,9 +8,9 @@ public class BombScript : MonoBehaviour
     public GameObject Explosion;
     public GameObject Player;
     public GameObject shadow;
-
     public Vector3 StartingPosition;
     GameObject shadowinst;
+
     // Use this for initialization
     void Start()
     {
@@ -47,9 +47,7 @@ public class BombScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             GameManager.GetComponent<ScoreManager>().CheckHighScore();
-            /*spawner.Dead = true;
-            spawner.ResetTimer();
-            spawner.enabled = false;*/
+            spawner.PlayerDied();
             Destroy(collision.gameObject);
             Instantiate(Player, new Vector3(0, 0, 3), Quaternion.identity);
             GameManager.GetComponent<GameManager>().RestartGame();
