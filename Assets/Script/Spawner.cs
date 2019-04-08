@@ -9,10 +9,12 @@ public class Spawner : MonoBehaviour
     public int bombCount;
     int spawnRate;
     bool isDead;
+    ScoreManager scoreManager;
     private void Start()
     {
         spawnPositions = GenerateSpwanPositions(3, 3);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        scoreManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ScoreManager>();
     }
 
 
@@ -59,7 +61,7 @@ public class Spawner : MonoBehaviour
     {
 
         int playerIndex = player.index;
-        int numberOfBombs = Random.Range(3, 8);
+        int numberOfBombs = NumberOfBombs();
         int[] stackIndices = GetUniqueRandomArray(0, 9, numberOfBombs, playerIndex);
         for (int i = 0; i < stackIndices.Length; i++)
         {
@@ -67,6 +69,17 @@ public class Spawner : MonoBehaviour
         }
         spawnRate -= 1;
 
+    }
+
+    int NumberOfBombs()
+    {
+        // this function randomize number of spawning bombs based on score , wave length ..
+        int score = scoreManager.score;
+        if (score < 20) return Random.Range(2, 4);
+        if (score < 50) return Random.Range(3, 5);
+        if (score < 90) return Random.Range(2, 6);
+        if (score < 120) return Random.Range(4, 8);
+        return Random.Range(5, 8);
     }
 
     int[] GetUniqueRandomArray(int min, int max, int count, int playerIndex)
